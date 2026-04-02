@@ -1,4 +1,4 @@
-import { Bed, Calendar, CalendarClock, CalendarDays, CarFront, CarTaxiFront, Check, ChevronDown, ChevronLeft, CircleCheck, DoorOpen, Dot, EllipsisVertical, Eye, FerrisWheel, Gem, Heart, Home, Hotel, ImagePlus, Info, LayoutGrid, Loader2, LogOut, Mars, Minus, MoveLeft, MoveRight, Pen, Pin, Plane, Plus, Save, ShieldCheck, Star, User2, Users, Venus, X, Zap } from "lucide-react";
+import { Bed, Calendar, CalendarClock, CalendarDays, CarFront, CarTaxiFront, ChartArea, ChartBar, ChartBarIcon, ChartColumn, Check, ChevronDown, ChevronLeft, CircleCheck, DoorOpen, Dot, EllipsisVertical, Eye, FerrisWheel, Gem, GitGraph, Heart, Home, Hotel, ImagePlus, Info, LayoutGrid, Loader2, LogOut, Mars, Minus, MoveLeft, MoveRight, Pen, Pin, Plane, Plus, Save, ShieldCheck, Star, User2, Users, Venus, X, Zap } from "lucide-react";
 
 const Icons = {
   bed: Bed,
@@ -53,7 +53,8 @@ const Icons = {
   addImage:ImagePlus,
   spinner:Loader2,
   leftArrow:ChevronLeft,
-  home:Home
+  home:Home,
+  chart:ChartColumn
 
 };
 

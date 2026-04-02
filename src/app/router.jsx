@@ -29,6 +29,8 @@ import CreateRoom from './admin/create-room'
 import EditRoom from './admin/edit-room'
 import Inventory from './admin/inventory'
 import NotFound from './auth/not-found'
+import Insights from './admin/Insights'
+
 
 
 const Router = () => {
@@ -85,7 +87,10 @@ const Router = () => {
                  element={<CreateRoom/>}
                  />
                  
-                 
+                 <Route path={PATH_CONFIG.ADMIN.DASHBOARD.INSIGHTS}
+                 element={<Insights/>}
+                 />
+
                  <Route path={PATH_CONFIG.ADMIN.DASHBOARD.ROOMS.EDIT_ROOM}
                  element={<EditRoom/>}
                  />

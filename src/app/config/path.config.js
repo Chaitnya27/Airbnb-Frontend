@@ -28,6 +28,7 @@ const PATH_CONFIG={
       OVERVIEW: 'overview',
       EDIT_HOTEL: 'edit',
       BOOKINGS: 'bookings',
+      INSIGHTS: 'insights',
       ROOMS: {
         ROOT: 'rooms',
         INVENTORY: 'rooms/:roomId/inventory',

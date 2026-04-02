@@ -17,6 +17,12 @@ export const ADMIN_SIDEBAR = [
     to: ({ hotelId }) => `/admin/hotels/${hotelId}/rooms`,
     logo: 'hotel',
   },
+  {
+  id: '4',
+  label: 'Insights',
+  to: ({ hotelId }) => `/admin/hotels/${hotelId}/insights`,
+  logo: 'chart',
+},
 ];
 export const SEARCH_PARAMS_KEYS = {
   DURATION: 'duration',
