@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import useQuery from '@/lib/hooks/useQuery'
 import { LoadingSpinner } from '@/components/ui/loader'
 import ApiError from '@/components/api-error'
-import InsightsChart from './insights-chart'
+import InsightsChart from './Insights-chart'
 
 const Insights = () => {
   const { hotelId } = useParams()

@@ -55,7 +55,6 @@ const AuthContextProvider = ({ children }) => {
     setAuthenticatedUser({ isAuthenticated: true, user: data });
     setAuthChecked(true);
   } else if (error) {
-    // Only logout if it's a 401, not a network error
     if (error.includes('401') || error.includes('Unauthorized')) {
       setAuthenticatedUser({ isAuthenticated: false, user: null });
     }

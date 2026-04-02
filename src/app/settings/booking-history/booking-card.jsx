@@ -161,7 +161,7 @@ const BookingCard = ({
       </div>
 
       {/* Footer - Amount & Actions */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-b-[inherit] gap-3 sm:gap-4 px-3 sm:px-4 py-3 bg-blue-50">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between rounded-b-[inherit] gap-3 sm:gap-4 px-3 sm:px-4 py-3 bg-blue-50 dark:bg-blue-950">
         <div className="w-full sm:w-auto">
           <p className="text-sm sm:text-base font-semibold">{`Paid - ₹${amount.toLocaleString()}`}</p>
         </div>

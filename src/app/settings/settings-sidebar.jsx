@@ -24,7 +24,7 @@ const SettingsSidebar = () => {
   return (
     <>
       {/* MOBILE VIEW */}
-      <aside className="md:hidden w-full px-3 sm:px-4 py-4 shadow-md rounded-lg sm:rounded-xl bg-white mb-6">
+     <aside className="md:hidden w-full px-3 sm:px-4 py-4 shadow-md rounded-lg sm:rounded-xl bg-card mb-6">
         <div className="flex flex-col items-center gap-3">
           <div className="relative">
             <Avatar className="hover:cursor-crosshair size-20 sm:size-24">
@@ -105,7 +105,7 @@ const SettingsSidebar = () => {
       </aside>
 
       {/* TABLET & DESKTOP VIEW */}
-      <aside className="hidden md:flex sticky w-full max-w-sm lg:max-w-xs px-4 lg:px-5 py-6 shadow-md rounded-xl top-6 basis-72 shrink-0 h-max flex-col bg-white">
+      <aside className="hidden md:flex sticky w-full max-w-sm lg:max-w-xs px-4 lg:px-5 py-6 shadow-md rounded-xl top-6 basis-72 shrink-0 h-max flex-col bg-card">
         <div className="flex flex-col items-center gap-3 mb-4">
           <div className="relative">
             <Avatar className="cursor-pointer size-24 lg:size-28 shadow-md">

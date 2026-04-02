@@ -6,9 +6,11 @@ import { Link, useNavigate } from 'react-router'
 import { useAuthContext } from '@/lib/provider/auth-context-provider'
 import AccountMenu from '../account-menu'
 import { cn } from '@/lib/utils'
+import { useTheme } from '@/lib/provider/theme-provider'
 
 const Header = ({ showServiceList = true }) => {
     const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
     const { authenticatedUser } = useAuthContext();
     const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
 
@@ -21,8 +23,9 @@ const Header = ({ showServiceList = true }) => {
     }, []);
 
     return (
-        <header className='bg-white py-2 shadow-sm'>
+        <header className='bg-white dark:bg-gray-900 py-2 shadow-sm border-b border-gray-100 dark:border-gray-800 '>
             <div className="container px-3 sm:px-4 md:px-6 flex justify-between items-center pb-1 gap-2 sm:gap-4">
+                
                 {/* Logo */}
                 <div id="logo-wrapper" className="shrink-0">
                     <Link to="/" aria-label='go to Airbnb clone'>
@@ -36,87 +39,91 @@ const Header = ({ showServiceList = true }) => {
                     </Link>
                 </div>
 
-                {/* Auth Section */}
-                <div id='auth' className='flex gap-1 sm:gap-2 md:gap-3 justify-center items-center'>
+                {/* Right Section */}
+                <div className='flex gap-2 sm:gap-3 justify-center items-center'>
 
-                    {/* If logged in: Show Explore Hotels (desktop only) + Account Menu */}
-                    {authenticatedUser?.user ? (
-                        <>
-                            {/* Explore Hotels - Hidden on Mobile */}
-                            <Button
-                                onClick={() => navigate('/')}
-                                className="hidden sm:inline-flex bg-white text-gray-700 border border-gray-300 rounded-sm hover:bg-[#FF5A5F] hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10"
-                            >
-                                Explore Hotels
-                            </Button>
+                    {/* Theme Toggle Button */}
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        aria-label="Toggle theme"
+                    >
+                        <Icon 
+                            icon={theme === 'light' ? 'moon' : 'sun'} 
+                            size="20"
+                            className="text-gray-600 dark:text-gray-300"
+                        />
+                    </button>
 
-                            {/* Account Menu */}
-                            <AccountMenu user={authenticatedUser.user} />
-                        </>
-                    ) : (
-                        <>
+                    {/* Auth Section */}
+                    <div id='auth' className='flex gap-1 sm:gap-2 md:gap-3 justify-center items-center'>
+                        {authenticatedUser?.user ? (
+                            <>
+                                <Button
+                                    onClick={() => navigate('/')}
+                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+                                >
+                                    Explore Hotels
+                                </Button>
+                                <AccountMenu user={authenticatedUser.user} />
+                            </>
+                        ) : (
+                            <>
+                                <Button
+                                    onClick={() => navigate('/')}
+                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+                                >
+                                    Explore Hotels
+                                </Button>
 
+                                <Button
+                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+                                    asChild
+                                >
+                                    <Link to="/signup">Register</Link>
+                                </Button>
 
+                                <Button
+                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+                                    asChild
+                                >
+                                    <Link to="/signin">Login</Link>
+                                </Button>
 
-                            <Button
-                                onClick={() => navigate('/')}
-                                className="bg-white text-gray-700 border border-gray-300 rounded-sm hover:bg-[#FF5A5F] hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
-                            >
-                                Explore Hotels
-                            </Button>
-
-                            {/* Register Button - Hidden on Mobile */}
-                            <Button
-                                className="hidden sm:inline-flex bg-white text-gray-700 border border-gray-300 rounded-sm hover:bg-[#FF5A5F] hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10"
-                                asChild
-                            >
-                                <Link to="/signup">Register</Link>
-                            </Button>
-
-                            {/* Login Button - Text version hidden on mobile */}
-                            <Button
-                                className="hidden sm:inline-flex bg-white text-gray-700 border border-gray-300 rounded-sm hover:bg-[#f93f45] hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10"
-                                asChild
-                            >
-                                <Link to="/signin">Login</Link>
-                            </Button>
-
-                            {/* Mobile: Show Login Icon only */}
-                            <Button
-                                className="sm:hidden bg-white text-gray-700 border border-gray-300 rounded-sm hover:bg-[#f93f45] hover:text-white cursor-pointer p-1.5 h-8 w-8 flex items-center justify-center shrink-0"
-                                asChild
-                            >
-                                <Link to="/signin" aria-label="Login">
-                                    <Icon icon="user" size="18" />
-                                </Link>
-                            </Button>
-                        </>
-                    )}
+                                <Button
+                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+                                    asChild
+                                >
+                                    <Link to="/signin" aria-label="Login">
+                                        <Icon icon="user" size="18" />
+                                    </Link>
+                                </Button>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
 
             {/* Service List Navigation */}
-{showServiceList && (
-    <div className='container px-3 sm:px-4 md:px-6 flex gap-1 overflow-x-auto scrollbar border-t mt-2 py-2'>
-        {SERVICE_LIST.map(items => (
-            <Button
-                key={items.id}
-                className={cn(
-                    'bg-transparent shadow-none font-normal text-gray-600 rounded-full hover:bg-gray-100',
-                    'cursor-pointer flex items-center gap-1 sm:gap-2 px-3 sm:px-6 h-9 sm:h-11',
-                    'text-xs sm:text-sm whitespace-nowrap shrink-0',
-                    items.active && "border border-gray-800 text-gray-800"
-                )}
-                title={items.title}
-            >
-                <Icon icon={items.icons} size="16" className="sm:size-[18px]" />
-                {/* Show text on tablet and above */}
-                <span className="hidden sm:inline">{items.title}</span>
-            </Button>
-        ))}
-    </div>
-)}
-            
+            {showServiceList && (
+                <div className='container px-3 sm:px-4 md:px-6 flex gap-1 overflow-x-auto scrollbar border-t border-gray-100 dark:border-gray-800 mt-2 py-2'>
+                    {SERVICE_LIST.map(items => (
+                        <Button
+                            key={items.id}
+                            className={cn(
+                                'bg-transparent shadow-none font-normal text-gray-600 dark:text-gray-400 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800',
+                                'cursor-pointer flex items-center gap-1 sm:gap-2 px-3 sm:px-6 h-9 sm:h-11',
+                                'text-xs sm:text-sm whitespace-nowrap shrink-0',
+                                items.active && "border border-gray-800 dark:border-gray-400 text-gray-800 dark:text-gray-200"
+                            )}
+                            title={items.title}
+                        >
+                            <Icon icon={items.icons} size="16" className="sm:size-[18px]" />
+                            <span className="hidden sm:inline">{items.title}</span>
+                        </Button>
+                    ))}
+                </div>
+            )}
         </header>
     )
 }
