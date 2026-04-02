@@ -9,7 +9,15 @@ A production-level hotel booking platform frontend built with **React.js + Vite*
 🔗 **[https://airbnb-frontend-peach.vercel.app/](https://airbnb-frontend-peach.vercel.app/)**
  
 ---
+
+## 🧪 Demo Login (Try it out!)
  
+| Field | Value |
+|-------|-------|
+| 📧 Email | chai@gmail.com |
+| 🔑 Password | pass |
+
+---
 ## 🔗 Backend Repository
  
 👉 **[Airbnb-Backend](https://github.com/Chaitnya27/Airbnb-Backend)**
