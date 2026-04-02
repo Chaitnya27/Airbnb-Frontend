@@ -58,48 +58,50 @@ const Header = ({ showServiceList = true }) => {
                     {/* Auth Section */}
                     <div id='auth' className='flex gap-1 sm:gap-2 md:gap-3 justify-center items-center'>
                         {authenticatedUser?.user ? (
-                            <>
-                                <Button
-                                    onClick={() => navigate('/')}
-                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
-                                >
-                                    Explore Hotels
-                                </Button>
-                                <AccountMenu user={authenticatedUser.user} />
-                            </>
-                        ) : (
-                            <>
-                                <Button
-                                    onClick={() => navigate('/')}
-                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
-                                >
-                                    Explore Hotels
-                                </Button>
+    <>
+        <Button
+            onClick={() => navigate('/')}
+            className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+        >
+            Explore Hotels
+        </Button>
+        <AccountMenu user={authenticatedUser.user} />
+    </>
+) : (
+    <>
+        <Button
+            onClick={() => navigate('/')}
+            className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+        >
+            Explore Hotels
+        </Button>
 
-                                <Button
-                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
-                                    asChild
-                                >
-                                    <Link to="/signup">Register</Link>
-                                </Button>
+        {/* Register & Login — hidden on mobile */}
+        <Button
+            className="hidden sm:inline-flex bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+            asChild
+        >
+            <Link to="/signup">Register</Link>
+        </Button>
 
-                                <Button
-                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
-                                    asChild
-                                >
-                                    <Link to="/signin">Login</Link>
-                                </Button>
+        <Button
+            className="hidden sm:inline-flex bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
+            asChild
+        >
+            <Link to="/signin">Login</Link>
+        </Button>
 
-                                <Button
-                                    className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer font-bold text-xs sm:text-sm px-2 sm:px-4 h-8 sm:h-10 whitespace-nowrap"
-                                    asChild
-                                >
-                                    <Link to="/signin" aria-label="Login">
-                                        <Icon icon="user" size="18" />
-                                    </Link>
-                                </Button>
-                            </>
-                        )}
+        {/* Person icon — mobile only, goes to signin */}
+        <Button
+            className="sm:hidden bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-[#FF5A5F] hover:border-[#FF5A5F] hover:text-white dark:hover:bg-[#FF5A5F] dark:hover:text-white cursor-pointer px-2 h-8"
+            asChild
+        >
+            <Link to="/signin" aria-label="Login">
+                <Icon icon="user" size="18" />
+            </Link>
+        </Button>
+    </>
+)}
                     </div>
                 </div>
             </div>

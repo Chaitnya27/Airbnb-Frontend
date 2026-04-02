@@ -10,19 +10,18 @@ import {
 import Icon from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import { useSignInForm } from './hooks/use-signin-form';
+import { ServerNotice } from '@/components/server-notice';
 
 const SignIn = () => {
-
   const [showPassword, setShowPassword] = useState(false);
-  const { form, handleSignInSubmit, pending } = useSignInForm()
+  const { form, handleSignInSubmit, pending } = useSignInForm();
 
   const handleHidePassword = (e) => {
     e.preventDefault();
     setShowPassword(prev => !prev);
-  }
+  };
 
   return (
     <>
@@ -38,9 +37,9 @@ const SignIn = () => {
               <FormItem>
                 <FormLabel className="text-xs sm:text-sm md:text-base">Email</FormLabel>
                 <FormControl>
-                  <Input 
-                    type="email" 
-                    {...field} 
+                  <Input
+                    type="email"
+                    {...field}
                     className="h-8 sm:h-9 md:h-10 rounded text-xs sm:text-sm"
                     placeholder="Enter your email"
                   />
@@ -66,7 +65,7 @@ const SignIn = () => {
                     />
                     <Button
                       type="button"
-                      onClick={(e) => handleHidePassword(e)}
+                      onClick={handleHidePassword}
                       disabled={pending}
                       variant="ghost"
                       size="sm"
@@ -87,10 +86,12 @@ const SignIn = () => {
             disabled={pending}
             aria-label="Login to your Account"
           >
-            {pending ? 'Logging in...' : 'Log in'}
+            {pending ? 'Logging in…' : 'Log in'}
           </Button>
         </form>
       </Form>
+
+      <ServerNotice />
 
       <div className="flex items-center justify-center mt-4 sm:mt-5 md:mt-6">
         <span className="text-xs sm:text-sm text-center">
@@ -102,6 +103,6 @@ const SignIn = () => {
       </div>
     </>
   );
-}
+};
 
-export default SignIn
+export default SignIn;

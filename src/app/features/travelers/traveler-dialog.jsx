@@ -97,7 +97,8 @@ const AddUpdateTravellerForm = ({
                   defaultValue={field.value}
                   className="flex gap-3"
                 >
-                  <FormItem className="flex items-center px-4 rounded-md border h-10 space-x-1 [&:has([aria-checked=true])]:bg-blue-50 cursor-pointer [&:has([aria-checked=true])]:border-primary space-y-0">
+                  <FormItem className="flex items-center px-4 rounded-md border h-10 space-x-1 [&:has([aria-checked=true])]:bg-blue-50 dark:[&:has([aria-checked=true])]:bg-blue-950 cursor-pointer [&:has([aria-checked=true])]:border-primary space-y-0">
+
                     <FormControl>
                       <RadioGroupItem
                         value="MALE"
@@ -107,7 +108,7 @@ const AddUpdateTravellerForm = ({
                     </FormControl>
                     <FormLabel className="font-normal">Male</FormLabel>
                   </FormItem>
-                  <FormItem className="flex items-center px-4 rounded-md border h-10 space-x-1 [&:has([aria-checked=true])]:bg-pink-50 cursor-pointer [&:has([aria-checked=true])]:border-pink-500 space-y-0">
+                  <FormItem className="flex items-center px-4 rounded-md border h-10 space-x-1 [&:has([aria-checked=true])]:bg-pink-50 dark:[&:has([aria-checked=true])]:bg-pink-950 cursor-pointer [&:has([aria-checked=true])]:border-pink-500 space-y-0">
                     <FormControl>
                       <RadioGroupItem
                         value="FEMALE"
