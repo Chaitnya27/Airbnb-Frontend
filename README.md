@@ -1,4 +1,4 @@
-![HotelBooking1](https://github.com/user-attachments/assets/e8ff4514-5bec-410c-a095-414ae218fb26)# 🏨 Airbnb Clone — Frontend
+# 🏨 Airbnb Clone — Frontend
  
 A production-level hotel booking platform frontend built with **React.js + Vite**, inspired by Airbnb. Fully responsive with Dark & Light mode support, seamless booking flow, and a powerful hotel manager dashboard.
  
